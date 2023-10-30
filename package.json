@@ -1,0 +1,24 @@
+{
+  "name": "economic-report-of-the-president-sentiment",
+  "version": "1.0.0",
+  "description": "## Overview This repository contains raw economic reports of the president, along with a NodeJS script that converts these PDFs to images, then uses [Tessaract](https://www.npmjs.com/package/tesseract.js) to extract the text from these images. Finally, the script uses [Natural](https://naturalnode.github.io/natural/) to analyze the sentiment of the economic reports.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "gts lint",
+    "clean": "gts clean",
+    "compile": "tsc",
+    "fix": "gts fix",
+    "prepare": "npm run compile",
+    "pretest": "npm run compile",
+    "posttest": "npm run lint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gts": "^5.2.0",
+    "typescript": "~5.2.0",
+    "@types/node": "20.8.2"
+  }
+}
