@@ -8,8 +8,11 @@ import cleanReport from './clean-report';
 import * as csv from 'fast-csv';
 
 const REPORTS_DIR = './reports';
+const CLEANED_DIR = './cleaned';
+const RESULT_DIR = './result';
 const BASE_URL = 'https://fraser.stlouisfed.org';
 const REPORTS_URL = `${BASE_URL}/title/economic-report-president-45`;
+const RESULT_FILE_PATH = path.join(RESULT_DIR, 'result.csv');
 
 const main = async () => {
   // Get reports
@@ -20,13 +23,13 @@ const main = async () => {
   // Analyze sentiment
   const reportFileNames = await readdir(REPORTS_DIR);
   const csvStream = csv.format({headers: true});
-  const outputFile = createWriteStream('output.csv');
-  csvStream.pipe(outputFile);
+  const resultFile = createWriteStream(RESULT_FILE_PATH);
+  csvStream.pipe(resultFile);
 
   for (const reportFileName of reportFileNames) {
     const reportPath = path.join(REPORTS_DIR, reportFileName);
-    cleanReport(reportPath, './cleaned');
-    const cleanedPath = path.join('./cleaned', reportFileName);
+    cleanReport(reportPath, CLEANED_DIR);
+    const cleanedPath = path.join(CLEANED_DIR, reportFileName);
     const sentiment = await analyzeSentiment(cleanedPath);
     csvStream.write({
       year: getReportDate(reportFileName).getFullYear(),
