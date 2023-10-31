@@ -26,9 +26,15 @@ const main = async () => {
   const resultFile = createWriteStream(RESULT_FILE_PATH);
   csvStream.pipe(resultFile);
 
-  for (const reportFileName of reportFileNames) {
+  console.log('Analyzing sentiment...');
+
+  for (let i = 0; i < reportFileNames.length; i++) {
+    console.log(
+      `Cleaning and analyzing report ${i + 1} of ${reportFileNames.length}...`
+    );
+    const reportFileName = reportFileNames[i];
     const reportPath = path.join(REPORTS_DIR, reportFileName);
-    cleanReport(reportPath, CLEANED_DIR);
+    await cleanReport(reportPath, CLEANED_DIR);
     const cleanedPath = path.join(CLEANED_DIR, reportFileName);
     const sentiment = await analyzeSentiment(cleanedPath);
     csvStream.write({
@@ -38,6 +44,7 @@ const main = async () => {
   }
 
   csvStream.end();
+  console.log('Done!');
 };
 
 if (require.main === module) {
