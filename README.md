@@ -10,4 +10,4 @@ This repository is part of a research project analysing the correlation between 
 
 ## Getting Started
 
-Run `npm i` to install dependencies, and `npm start` to execute the script. View the output in the `sentiment.json` file.
+Run `npm i` to install dependencies, and `npm compile` to compile the script. View the output in the [`result.csv`](./result/result.csv) file.
