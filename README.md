@@ -1,7 +1,9 @@
 # Economic Report of the President Sentiment
 
 ## Overview
-This repository contains raw economic reports of the president, along with a NodeJS script that converts these PDFs to images, then uses [Tessaract](https://www.npmjs.com/package/tesseract.js) to extract the text from these images. Finally, the script uses [Natural](https://naturalnode.github.io/natural/) to analyze the sentiment of the economic reports.
+
+This repository is part of a research project analysing the correlation between the sentiment of U.S. Economic Reports and key economic indicators. This script downloads all economic reports from the Fed's website, and runs a sentiment analysis on them. The cleaned reports remove numbers and unidentified tokens from the original text.
 
 ## Getting Started
+
 Run `npm i` to install dependencies, and `npm start` to execute the script. View the output in the `sentiment.json` file.

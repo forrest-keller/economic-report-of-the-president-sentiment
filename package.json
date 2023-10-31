@@ -17,8 +17,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "20.8.2",
     "gts": "^5.2.0",
-    "typescript": "~5.2.0",
-    "@types/node": "20.8.2"
+    "typescript": "~5.2.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "fast-csv": "^4.3.6",
+    "natural": "^6.8.0",
+    "pdf-parse": "^1.1.1"
   }
 }
