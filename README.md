@@ -6,7 +6,7 @@ This repository is part of a research project analysing the correlation between 
 
 ## Results
 
-![Economic Report of the President Sentiment](./results/Economic%20Report%20of%20the%20President%20Sentiment.png)
+![Economic Report of the President Sentiment](./result/result.png)
 
 ## Getting Started
 
